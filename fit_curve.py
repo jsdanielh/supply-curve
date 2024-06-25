@@ -14,11 +14,12 @@ values = np.array([2520000000, 4696558082.581287, 6616763076.0469, 8310808020.87
 
 
 def exponential_model(t, a, b):
-    return 2520000000 + (a * (1 - np.power(2, -b * (t - 2018))))
+    return 2520000000 + (a / b * (1 - np.power(2, -b * (t - 2018)*31536000000)))
 
 
 # Fit the exponential model to the data
-params, covariance = curve_fit(exponential_model, years, values, p0=(1e9, 0.1))
+params, covariance = curve_fit(
+    exponential_model, years, values, p0=(1e9, 1e-10))
 
 # Extract the parameters
 a, b = params
