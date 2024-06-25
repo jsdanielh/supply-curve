@@ -34,7 +34,7 @@ def pos_supply():
 
 
 def main():
-    plt.plot(range(2018, 2048), pow_supply(), label='pow')
+    plt.plot(range(2018, 2048), pow_supply(), 'r^', label='pow')
     plt.plot(range(2018, 2048), pos_supply(), label='pos')
     plt.ylabel('Supply')
     plt.legend()
